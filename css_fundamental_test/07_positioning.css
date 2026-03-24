@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; margin: 1.25rem; }
+.instruction { background: #fff9c4; padding: 0.5rem; }
+.playground { position: relative; height: 200px; border: 1px dashed #999; margin: 1rem 0; }
+.box { width: 130px; padding: 0.75rem; color: #111; }
+.relative { position: relative; left: 12px; top: 10px; background: #fde68a; }
+.absolute { position: absolute; top: 48px; left: 160px; background: #fca5a5; z-index: 2; }
+.fixed { position: fixed; right: 16px; bottom: 16px; background: #93c5fd; }
+.sticky-note { position: sticky; top: 0; padding: 0.75rem; background: #bbf7d0; }
+.spacer { height: 110vh; }

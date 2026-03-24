@@ -1,0 +1,23 @@
+body { font-family: Arial, sans-serif; margin: 1.25rem; }
+.instruction { background: #fff9c4; padding: 0.5rem; }
+.menu { display: flex; gap: 0.75rem; list-style: none; padding: 0; }
+a { text-decoration: none; padding: 0.5rem 0.75rem; border: 1px solid #cbd5e1; }
+a:hover, a:focus { background: #e2e8f0; }
+.menu li:nth-child(odd) a { border-color: #94a3b8; }
+
+.responsive-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+article { background: #f1f5f9; padding: 1rem; border: 1px solid #cbd5e1; }
+
+@media (max-width: 900px) {
+  .responsive-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .menu { flex-direction: column; }
+  .responsive-grid { grid-template-columns: 1fr; }
+}
