@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Fundamentals Evaluation</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>HTML Skills Assessment Portal</h1>
+        <p>A comprehensive demonstration of pure HTML capabilities.</p>
+    </header>
+
+    <hr>
+
+    <!-- Navigation Section -->
+    <nav>
+        <h2>Navigation Menu</h2>
+        <ul>
+            <li><a href="#text-formatting">Text Formatting</a></li>
+            <li><a href="#lists">Lists & Grouping</a></li>
+            <li><a href="#media">Media Elements</a></li>
+            <li><a href="#tables">Data Tables</a></li>
+            <li><a href="#forms">Interactive Forms</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">External Documentation</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- Section: Text Formatting -->
+        <section id="text-formatting">
+            <h2>1. Text Formatting & Hierarchy</h2>
+            <article>
+                <h3>Headings and Paragraphs</h3>
+                <p>This is a standard paragraph. HTML provides six levels of headings to define the structure of your content.</p>
+                <h4>Level 4 Heading</h4>
+                <h5>Level 5 Heading</h5>
+                <h6>Level 6 Heading</h6>
+            </article>
+
+            <article>
+                <h3>Inline Styles and Semantic Text</h3>
+                <p>You can make text <strong>bold (strong)</strong> or <em>italicized (emphasized)</em>.</p>
+                <p>Other tags include <code>code snippets</code>, <mark>highlighted text</mark>, <small>smaller text</small>, <sub>subscript</sub>, and <sup>superscript</sup>.</p>
+                <blockquote>
+                    "This is a blockquote element used for indicating quotations from another source."
+                    <cite>- HTML Specifications</cite>
+                </blockquote>
+            </article>
+        </section>
+
+        <hr>
+
+        <!-- Section: Lists -->
+        <section id="lists">
+            <h2>2. Lists and Grouping</h2>
+            
+            <h3>Unordered List (Bullet points)</h3>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3 (Not used here)</li>
+                <li>JavaScript (Not used here)</li>
+            </ul>
+
+            <h3>Ordered List (Numbered)</h3>
+            <ol>
+                <li>Open the editor</li>
+                <li>Write the code</li>
+                <li>Save as .html</li>
+                <li>Open in browser</li>
+            </ol>
+
+            <h3>Description List</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - The standard markup language for documents designed to be displayed in a web browser.</dd>
+                <dt>Tag</dt>
+                <dd>The basic building block of HTML, used to create elements.</dd>
+            </dl>
+        </section>
+
+        <hr>
+
+        <!-- Section: Media -->
+        <section id="media">
+            <h2>3. Media Elements</h2>
+            
+            <h3>Images and Figures</h3>
+            <figure>
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+                <figcaption>Figure 1: A simple placeholder image with a caption.</figcaption>
+            </figure>
+
+            <h3>Audio and Video</h3>
+            <p>Note: Media will only play if valid sources are provided.</p>
+            <audio controls>
+                <source src="audio-sample.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <br><br>
+            <video width="320" height="240" controls>
+                <source src="video-sample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <hr>
+
+        <!-- Section: Tables -->
+        <section id="tables">
+            <h2>4. Data Tables</h2>
+            <table border="1">
+                <caption>Student Performance Record</caption>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Alice Johnson</td>
+                        <td>Web Dev</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Bob Smith</td>
+                        <td>HTML Only</td>
+                        <td>88</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Class Average</td>
+                        <td>91.5</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Section: Forms -->
+        <section id="forms">
+            <h2>5. Interactive Forms</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <p>
+                        <label for="fname">First Name:</label><br>
+                        <input type="text" id="fname" name="fname" placeholder="Enter first name" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Email Address:</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </p>
+
+                    <p>
+                        <label for="dob">Date of Birth:</label><br>
+                        <input type="date" id="dob" name="dob">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferences</legend>
+                    
+                    <p>Experience Level:</p>
+                    <input type="radio" id="beginner" name="level" value="beginner">
+                    <label for="beginner">Beginner</label><br>
+                    <input type="radio" id="intermediate" name="level" value="intermediate">
+                    <label for="intermediate">Intermediate</label><br>
+                    <input type="radio" id="advanced" name="level" value="advanced">
+                    <label for="advanced">Advanced</label>
+
+                    <p>Interests:</p>
+                    <input type="checkbox" id="frontend" name="interest" value="frontend">
+                    <label for="frontend">Frontend Development</label><br>
+                    <input type="checkbox" id="backend" name="interest" value="backend">
+                    <label for="backend">Backend Development</label>
+
+                    <p>
+                        <label for="country">Primary Language:</label>
+                        <select id="language" name="language">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                            <option value="python">Python</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="comments">Additional Comments:</label><br>
+                        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+                    </p>
+                </fieldset>
+
+                <br>
+                <input type="submit" value="Submit Evaluation">
+                <input type="reset" value="Clear Form">
+            </form>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- Sidebar/Aside Content -->
+    <aside>
+        <h3>Did you know?</h3>
+        <p>HTML was first proposed by Tim Berners-Lee in 1990.</p>
+        
+        <details>
+            <summary>Click to see more fun facts</summary>
+            <ul>
+                <li>The first version of HTML had only 18 tags.</li>
+                <li>HTML5 was finalized in 2014.</li>
+            </ul>
+        </details>
+    </aside>
+
+    <hr>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 HTML Skills Assessment Center. All rights reserved.</p>
+        <address>
+            Contact the examiner at: <a href="mailto:instructor@example.edu">instructor@example.edu</a>
+        </address>
+    </footer>
+
+</body>
+</html>
