@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; margin: 1.25rem; }
+.instruction { background: #fff9c4; padding: 0.5rem; }
+.container { display: flex; gap: 1.25rem; }
+
+/* TODO: adjust width/padding/border to show differences */
+.card { width: 220px; padding: 24px; border: 8px solid #333; margin-top: 1rem; background: #e2e8f0; }
+.default-box { box-sizing: content-box; }
+.border-box { box-sizing: border-box; }

@@ -1,0 +1,8 @@
+body { margin: 0; padding: 2rem; font-family: Georgia, 'Times New Roman', serif; }
+.instruction { background: #fff9c4; padding: 0.5rem; }
+article { max-width: 65ch; margin-top: 1rem; }
+
+/* TODO: typography rules */
+h1 { font-family: Arial, sans-serif; }
+.lead { font-weight: 700; }
+p { line-height: 1.6; }

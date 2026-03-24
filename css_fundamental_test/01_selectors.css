@@ -1,0 +1,11 @@
+/* TODO examples:
+1) Style all li items
+2) Style .name
+3) Style #profile-card
+4) Style [data-level="beginner"]
+5) Style #profile-card > ul > li > span
+6) Make button change color on hover
+*/
+body { font-family: Arial, sans-serif; margin: 1.25rem; }
+.instruction { background: #fff9c4; padding: 0.5rem; }
+#profile-card { border: 2px solid #444; padding: 1rem; max-width: 420px; }
