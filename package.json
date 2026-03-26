@@ -8,7 +8,8 @@
     "test": "node javascript_test/beginner-fundamentals-test.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "marked": "^4.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
