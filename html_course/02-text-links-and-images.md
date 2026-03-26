@@ -70,3 +70,40 @@ This module focuses on the core elements used to display text, navigate between 
 
 ### Nested Lists
 - You can place lists inside other list items to create complex structures.
+
+```html
+<ul>
+  <li>Fruits
+    <ul>
+      <li>Apples</li>
+      <li>Bananas</li>
+      <li>Oranges</li>
+    </ul>
+  </li>
+  <li>Vegetables
+    <ul>
+      <li>Carrots</li>
+      <li>Broccoli</li>
+    </ul>
+  </li>
+</ul>
+```
+
+You can also nest ordered lists inside unordered lists or vice versa:
+
+```html
+<ol>
+  <li>Step 1: Preparation
+    <ul>
+      <li>Gather ingredients</li>
+      <li>Preheat oven</li>
+    </ul>
+  </li>
+  <li>Step 2: Cooking
+    <ul>
+      <li>Mix ingredients</li>
+      <li>Bake for 30 minutes</li>
+    </ul>
+  </li>
+</ol>
+```
