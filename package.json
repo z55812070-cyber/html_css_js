@@ -1,0 +1,16 @@
+{
+  "name": "web-dev-courses",
+  "version": "1.0.0",
+  "description": "Comprehensive web development learning platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node javascript_test/beginner-fundamentals-test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
