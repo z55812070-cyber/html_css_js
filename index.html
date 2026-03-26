@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Learning Platform</title>
+    <link rel="stylesheet" href="portfolio_website/style.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .card-links {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .link-btn {
+            display: inline-block;
+            padding: 0.75rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .link-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .link-btn.secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .link-btn.secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .roadmap-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .roadmap-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .roadmap-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Web Development Learning Platform</h1>
+            <p>Master the core technologies of the modern web with our comprehensive curriculum.</p>
+        </header>
+
+        <section>
+            <h2 style="text-align: center; margin-bottom: 2rem;">Learning Paths</h2>
+            <div class="section-grid">
+                <!-- HTML Course -->
+                <div class="card">
+                    <h3>HTML Foundations</h3>
+                    <p>Learn the language of the web. Structure documents, handle forms, and master semantic markup.</p>
+                    <div class="card-links">
+                        <a href="html_course/README.md" class="link-btn">Start HTML Course</a>
+                        <a href="html_fundamental_test/index.html" class="link-btn secondary">Take HTML Test</a>
+                    </div>
+                </div>
+
+                <!-- CSS Course -->
+                <div class="card">
+                    <h3>CSS Masterclass</h3>
+                    <p>Design beautiful, responsive interfaces. Master the Box Model, Flexbox, Grid, and Modern Layouts.</p>
+                    <div class="card-links">
+                        <a href="css_course/README.md" class="link-btn">Start CSS Course</a>
+                        <a href="css_fundamental_test/index.html" class="link-btn secondary">Take CSS Test</a>
+                    </div>
+                </div>
+
+                <!-- JS Course -->
+                <div class="card">
+                    <h3>Modern JavaScript</h3>
+                    <p>From basics to advanced topics like Asynchronous JS, DOM manipulation, and Network requests.</p>
+                    <div class="card-links">
+                        <a href="javascript_course/README.md" class="link-btn">Start JS Course</a>
+                        <a href="javascript_test/multiple-choice-questions.md" class="link-btn secondary">View JS Questions</a>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="card">
+                    <h3>Capstone Project</h3>
+                    <p>Apply your skills in a real-world scenario by building a personal portfolio website from scratch.</p>
+                    <div class="card-links">
+                        <a href="portfolio_website/index.html" class="link-btn">View Portfolio Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Visual Learning Guides</h2>
+            <div class="roadmap-links">
+                <a href="html_basics_roadmap.svg" class="roadmap-btn">HTML Roadmap</a>
+                <a href="css_basics_roadmap.svg" class="roadmap-btn">CSS Roadmap</a>
+                <a href="javascript_basics_roadmap.svg" class="roadmap-btn">JS Roadmap</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Web Development Courses. All rights reserved.</p>
+    </footer>
+</body>
+</html>
