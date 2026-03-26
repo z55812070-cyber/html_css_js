@@ -38,6 +38,47 @@ Tables are created using the `<table>` tag, with several nested elements to defi
 - **`colspan`:** Allows a cell to span across multiple columns.
 - **`rowspan`:** Allows a cell to span across multiple rows.
 
+### `colspan` Example
+Use `colspan` when one cell should take up more than one column.
+
+```html
+<table>
+  <tr>
+    <th>Quarter</th>
+    <th>Sales</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Q1</td>
+    <td>$10,000</td>
+    <td>Normal growth</td>
+  </tr>
+  <tr>
+    <td colspan="2">Total (Q1 + Q2)</td>
+    <td>$25,000</td>
+  </tr>
+</table>
+```
+
+### `rowspan` Example
+Use `rowspan` when one cell should cover multiple rows.
+
+```html
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Member</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Frontend</td>
+    <td>Alice</td>
+  </tr>
+  <tr>
+    <td>Bob</td>
+  </tr>
+</table>
+```
+
 ## Stage 7: Forms
 
 ### Gathering User Input
