@@ -79,3 +79,44 @@ Every element in HTML is represented as a rectangular box. The box model consist
 <!-- Inline elements sit on the same line -->
 <p>This is a <span>span (inline)</span> and an <a href="#">link (inline)</a> in a paragraph.</p>
 ```
+
+### Why You Can't Put `<h1>` Inside `<p>` (Even Though Both Are Block-Level)
+
+Both `<p>` and `<h1>` are block-level elements, but **HTML content models** define what elements can contain what other elements. This is about **semantic rules**, not just display behavior.
+
+- **`<p>` (paragraph) element:** According to the HTML specification, a `<p>` element can only contain **phrasing content** (text and inline elements like `<span>`, `<a>`, `<strong>`, etc.). It cannot contain other block-level elements.
+- **`<h1>` (heading) element:** This is a block-level element that represents a heading, which is structurally different from phrasing content.
+
+#### What Happens If You Try?
+
+The browser's HTML parser will automatically "fix" invalid nesting by closing the `<p>` tag early:
+
+```html
+<!-- Invalid HTML -->
+<p>
+  This is a paragraph with an <h1>Heading</h1> inside it.
+</p>
+
+<!-- What the browser actually interprets -->
+<p>This is a paragraph with an </p>
+<h1>Heading</h1>
+<p>inside it.</p>
+```
+
+This causes unexpected rendering and breaks your document structure. Always check the [HTML content model](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories) when nesting elements.
+
+#### Correct Approach
+
+If you need a heading near a paragraph, place them as siblings:
+
+```html
+<!-- Valid HTML -->
+<p>This is a paragraph.</p>
+<h1>This is a heading after the paragraph</h1>
+
+<!-- Or wrap both in a container -->
+<div>
+  <p>This is a paragraph.</p>
+  <h1>This is a heading</h1>
+</div>
+```
