@@ -46,3 +46,36 @@ Every element in HTML is represented as a rectangular box. The box model consist
 ### box-sizing: border-box
 - By default, the width and height you set for an element only apply to the content box.
 - `box-sizing: border-box;` includes padding and border in the element's total width and height, making it much easier to manage layouts.
+
+### Block Elements vs Inline Elements
+
+#### Block Elements
+- **Definition:** Block-level elements always start on a new line and take up the full width available (stretching out to the left and right as far as possible).
+- **Behavior:** They create "blocks" that stack vertically by default.
+- **Examples:** `<div>`, `<p>`, `<h1>` through `<h6>`, `<ul>`, `<li>`, `<section>`, `<header>`, `<footer>`.
+- **Styling:** You can set width, height, margin, and padding on all sides, and they will be respected.
+
+#### Inline Elements
+- **Definition:** Inline elements do not start on a new line; they only take up as much width as necessary.
+- **Behavior:** They flow within the content and sit alongside other inline elements on the same line.
+- **Examples:** `<span>`, `<a>`, `<strong>`, `<em>`, `<img>`, `<code>`.
+- **Styling:** Setting width and height has no effect. Vertical margins and padding may affect layout but won't push other elements away vertically.
+
+#### Key Differences
+| Feature | Block Elements | Inline Elements |
+|---------|---------------|-----------------|
+| Line Break | Starts on a new line | Does not start on a new line |
+| Width | Takes full available width | Takes only necessary width |
+| Width/Height | Can be set | Cannot be set (ignored) |
+| Margin/Padding | All sides work fully | Horizontal works fully; vertical may not affect surrounding elements |
+| Use Case | Layout structure, sections, paragraphs | Styling text, links, small elements within content |
+
+#### Example
+```html
+<!-- Block elements stack vertically -->
+<div>This is a div (block)</div>
+<p>This is a paragraph (block)</p>
+
+<!-- Inline elements sit on the same line -->
+<p>This is a <span>span (inline)</span> and an <a href="#">link (inline)</a> in a paragraph.</p>
+```
