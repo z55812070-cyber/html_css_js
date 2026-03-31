@@ -1,0 +1,623 @@
+/* ============================================ */
+/* Module 3: Flexbox and CSS Grid Examples      */
+/* Complete CSS for all examples                */
+/* ============================================ */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+section {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #667eea;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.example-container {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.example-container h3 {
+    color: #764ba2;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.example-container h4 {
+    color: #555;
+    margin: 15px 0 10px;
+    font-size: 1.1rem;
+}
+
+.example-container p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+code {
+    background: #e8e8e8;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #c7254e;
+}
+
+/* Common item styles */
+.flex-item,
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.flex-item:hover,
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+/* Size variations */
+.flex-item.small,
+.grid-item.small {
+    min-height: 50px;
+}
+
+.flex-item.medium,
+.grid-item.medium {
+    min-height: 80px;
+}
+
+.flex-item.large,
+.grid-item.large {
+    min-height: 120px;
+}
+
+/* ============================================ */
+/* STAGE 6: FLEXBOX EXAMPLES                    */
+/* ============================================ */
+
+/* Example 1: Flexbox Fundamentals */
+.flex-fundamental {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.flex-fundamental .flex-item {
+    min-width: 100px;
+}
+
+/* Example 2: flex-direction */
+.flex-direction-row,
+.flex-direction-column {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flex-direction-row {
+    flex-direction: row;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.flex-direction-row .flex-item,
+.flex-direction-column .flex-item {
+    min-width: 80px;
+    min-height: 80px;
+}
+
+/* Example 3: justify-content */
+.justify-start,
+.justify-center,
+.justify-between,
+.justify-around {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-start .flex-item,
+.justify-center .flex-item,
+.justify-between .flex-item,
+.justify-around .flex-item {
+    min-width: 80px;
+    min-height: 60px;
+}
+
+/* Example 4: align-items */
+.align-stretch,
+.align-center,
+.align-flex-start {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 200px;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-flex-start {
+    align-items: flex-start;
+}
+
+.align-stretch .flex-item,
+.align-center .flex-item,
+.align-flex-start .flex-item {
+    min-width: 80px;
+}
+
+/* Example 5: flex-wrap */
+.wrap-nowrap,
+.wrap-wrap {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.wrap-nowrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.wrap-wrap {
+    flex-wrap: wrap;
+}
+
+.wrap-nowrap .flex-item,
+.wrap-wrap .flex-item {
+    min-width: 150px;
+    min-height: 60px;
+}
+
+/* Example 6: flex-grow, flex-shrink, flex-basis */
+.flex-grow-example {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flex-grow-example .grow-1 {
+    flex-grow: 1;
+    min-height: 60px;
+}
+
+.flex-grow-example .grow-2 {
+    flex-grow: 2;
+    min-height: 60px;
+}
+
+.flex-grow-example .grow-3 {
+    flex-grow: 3;
+    min-height: 60px;
+}
+
+.flex-basis-example {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flex-basis-example .basis-100 {
+    flex-basis: 100px;
+    min-height: 60px;
+}
+
+.flex-basis-example .basis-200 {
+    flex-basis: 200px;
+    min-height: 60px;
+}
+
+.flex-basis-example .basis-300 {
+    flex-basis: 300px;
+    min-height: 60px;
+}
+
+.flex-shorthand-example {
+    display: flex;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flex-shorthand-example .flex-auto {
+    flex: 1 1 auto;
+    min-height: 60px;
+}
+
+/* ============================================ */
+/* STAGE 7: CSS GRID EXAMPLES                   */
+/* ============================================ */
+
+/* Example 7: Grid Fundamentals */
+.grid-fundamental {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Example 8: grid-template-columns */
+.grid-fixed-columns {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-fr-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-mixed-columns {
+    display: grid;
+    grid-template-columns: 200px 1fr 2fr;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Example 9: grid-template-rows */
+.grid-rows-example {
+    display: grid;
+    grid-template-rows: 100px 150px 80px;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Example 10: gap */
+.grid-gap-small {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-gap-large {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-gap-separated {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 5px;
+    column-gap: 40px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Example 11: justify-items and align-items */
+.grid-justify-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 250px;
+}
+
+.grid-align-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 120px);
+    align-items: center;
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Example 12: grid-column and grid-row */
+.grid-column-span {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-column-span .span-2 {
+    grid-column: span 2;
+}
+
+.grid-positioned {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-positioned .positioned {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+/* Example 13: grid-area */
+.grid-named-areas {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    min-height: 300px;
+}
+
+.grid-named-areas .header {
+    grid-area: header;
+}
+
+.grid-named-areas .sidebar {
+    grid-area: sidebar;
+}
+
+.grid-named-areas .content {
+    grid-area: content;
+}
+
+.grid-named-areas .footer {
+    grid-area: footer;
+}
+
+.grid-area-shorthand {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.grid-area-shorthand .area-1 {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.grid-area-shorthand .area-2 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.grid-area-shorthand .area-3 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+/* Example 14: Flexbox vs Grid Comparison */
+.flexbox-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    background: #667eea;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flexbox-nav .nav-item {
+    padding: 15px 30px;
+    background: white;
+    color: #667eea;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.flexbox-nav .nav-item:hover {
+    background: #764ba2;
+    color: white;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 150px);
+    gap: 15px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.grid-gallery .gallery-item {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    font-size: 1.1rem;
+}
+
+.grid-gallery .large {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .grid-fundamental,
+    .grid-fr-columns,
+    .grid-gap-small,
+    .grid-gap-large,
+    .grid-gap-separated {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-direction-row,
+    .flex-direction-column {
+        flex-direction: column;
+    }
+
+    .grid-fundamental,
+    .grid-fr-columns,
+    .grid-gap-small,
+    .grid-gap-large,
+    .grid-gap-separated,
+    .grid-gallery {
+        grid-template-columns: 1fr;
+    }
+}
