@@ -34,3 +34,107 @@ This module covers the core concepts used to style text and control the layout o
 ### z-index
 - Controls the stack order of elements (which element is in front of another).
 - Only works on positioned elements (not `static`).
+
+### HTML Positioning Example
+
+The following example demonstrates the different positioning values:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Example</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            border: 2px solid #333;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .static-box {
+            position: static;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .relative-box {
+            position: relative;
+            top: 20px;
+            left: 30px;
+            background-color: lightgreen;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 50px;
+            right: 30px;
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        .fixed-box {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: gold;
+            padding: 10px;
+        }
+
+        .sticky-box {
+            position: sticky;
+            top: 0;
+            background-color: lavender;
+            padding: 10px;
+        }
+
+        .z-index-example {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .back {
+            background-color: rgba(255, 0, 0, 0.5);
+            top: 80px;
+            left: 80px;
+            z-index: 1;
+        }
+
+        .front {
+            background-color: rgba(0, 0, 255, 0.5);
+            top: 100px;
+            left: 100px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Positioning Examples</h1>
+
+    <div class="container">
+        <p class="static-box">Static (default position)</p>
+        <p class="relative-box">Relative (offset from normal position)</p>
+        <p class="absolute-box">Absolute (relative to container)</p>
+    </div>
+
+    <div style="height: 200vh;">
+        <p class="sticky-box">Sticky (sticks to top when scrolling)</p>
+        <p>Scroll down to see the sticky box in action...</p>
+    </div>
+
+    <div class="container">
+        <div class="z-index-example back"></div>
+        <div class="z-index-example front"></div>
+    </div>
+    <p class="fixed-box">Fixed (stays in viewport)</p>
+</body>
+</html>
+```
