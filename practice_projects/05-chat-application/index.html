@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp - Real-time Messaging</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <i class="fas fa-comments logo-icon"></i>
+                    <h1>ChatApp</h1>
+                    <p>Real-time messaging made simple</p>
+                </div>
+                
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i>
+                            Username
+                        </label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            class="form-input"
+                            placeholder="Enter your username"
+                            required
+                            minlength="3"
+                            maxlength="20"
+                            autocomplete="off"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="room-select">
+                            <i class="fas fa-hashtag"></i>
+                            Chat Room
+                        </label>
+                        <select id="room-select" class="form-input">
+                            <option value="general">General</option>
+                            <option value="tech">Tech Talk</option>
+                            <option value="random">Random</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="music">Music</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="remember-me">
+                            Remember me
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Join Chat
+                    </button>
+                    
+                    <div class="login-footer">
+                        <p>Or use a random username</p>
+                        <button type="button" id="random-username" class="btn-secondary">
+                            <i class="fas fa-random"></i>
+                            Generate Random
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-screen" class="screen">
+        <div class="chat-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-info">
+                        <div class="user-avatar" id="current-user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-details">
+                            <h3 id="current-username">User</h3>
+                            <span class="status-indicator online"></span>
+                            <span class="status-text">Online</span>
+                        </div>
+                    </div>
+                    <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                
+                <div class="rooms-section">
+                    <div class="section-header">
+                        <h4><i class="fas fa-hashtag"></i> Chat Rooms</h4>
+                        <button id="create-room-btn" class="icon-btn-sm" aria-label="Create room">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <ul id="rooms-list" class="rooms-list">
+                        <!-- Rooms will be populated here -->
+                    </ul>
+                </div>
+                
+                <div class="users-section">
+                    <div class="section-header">
+                        <h4><i class="fas fa-users"></i> Online Users</h4>
+                        <span id="online-count" class="badge">0</span>
+                    </div>
+                    <ul id="users-list" class="users-list">
+                        <!-- Online users will be listed here -->
+                    </ul>
+                </div>
+                
+                <div class="sidebar-footer">
+                    <button id="leave-chat" class="btn-danger btn-block">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Leave Chat
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Chat Area -->
+            <main class="chat-main">
+                <header class="chat-header">
+                    <div class="chat-header-left">
+                        <button id="toggle-sidebar" class="icon-btn mobile-only" aria-label="Toggle sidebar">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="room-info">
+                            <h2 id="current-room-name">
+                                <i class="fas fa-hashtag"></i>
+                                <span>general</span>
+                            </h2>
+                            <span id="room-topic" class="room-topic">Welcome to the general chat room!</span>
+                        </div>
+                    </div>
+                    <div class="chat-header-right">
+                        <button id="search-messages" class="icon-btn" aria-label="Search messages">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button id="room-settings" class="icon-btn" aria-label="Room settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Messages Container -->
+                <div id="messages-container" class="messages-container">
+                    <div id="messages-wrapper" class="messages-wrapper">
+                        <!-- Connection Status -->
+                        <div id="connection-status" class="connection-status hidden">
+                            <i class="fas fa-wifi"></i>
+                            <span>Connecting...</span>
+                        </div>
+                        
+                        <!-- Welcome Message -->
+                        <div class="system-message">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Welcome to <strong id="welcome-room-name">#general</strong>! Start chatting with others.</p>
+                        </div>
+                        
+                        <!-- Messages will be dynamically inserted here -->
+                        <div id="messages-list" class="messages-list">
+                            <!-- Sample message structure:
+                            <div class="message">
+                                <div class="message-avatar">
+                                    <img src="avatar.jpg" alt="User">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <span class="message-author">Username</span>
+                                        <span class="message-time">12:34 PM</span>
+                                    </div>
+                                    <div class="message-text">Hello everyone!</div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                        
+                        <!-- Typing Indicator -->
+                        <div id="typing-indicator" class="typing-indicator hidden">
+                            <span class="typing-user">Someone</span>
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scroll to Bottom Button -->
+                    <button id="scroll-to-bottom" class="scroll-btn hidden">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+
+                <!-- Message Input -->
+                <footer class="message-input-area">
+                    <form id="message-form" class="message-form">
+                        <button type="button" id="emoji-btn" class="icon-btn" aria-label="Add emoji">
+                            <i class="far fa-smile"></i>
+                        </button>
+                        
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="message-input" 
+                                class="message-input"
+                                placeholder="Type a message..."
+                                autocomplete="off"
+                            >
+                            <button type="button" id="attach-file" class="icon-btn-sm" aria-label="Attach file">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                        </div>
+                        
+                        <button type="submit" id="send-message" class="btn-primary" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <!-- Emoji Picker -->
+                    <div id="emoji-picker" class="emoji-picker hidden">
+                        <div class="emoji-grid">
+                            <!-- Common emojis -->
+                            <span class="emoji-item">😀</span>
+                            <span class="emoji-item">😂</span>
+                            <span class="emoji-item">😍</span>
+                            <span class="emoji-item">🤔</span>
+                            <span class="emoji-item">👍</span>
+                            <span class="emoji-item">👎</span>
+                            <span class="emoji-item">❤️</span>
+                            <span class="emoji-item">🔥</span>
+                            <span class="emoji-item">🎉</span>
+                            <span class="emoji-item">😊</span>
+                            <span class="emoji-item">😎</span>
+                            <span class="emoji-item">🤣</span>
+                            <span class="emoji-item">✅</span>
+                            <span class="emoji-item">❌</span>
+                            <span class="emoji-item">👋</span>
+                            <span class="emoji-item">🙏</span>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Create Room Modal -->
+    <div id="create-room-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Create New Room</h3>
+                <button class="modal-close" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="create-room-form" class="modal-body">
+                <div class="form-group">
+                    <label for="new-room-name">Room Name</label>
+                    <input 
+                        type="text" 
+                        id="new-room-name" 
+                        class="form-input"
+                        placeholder="e.g., study-group"
+                        required
+                        minlength="3"
+                        maxlength="30"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="new-room-topic">Topic (optional)</label>
+                    <textarea 
+                        id="new-room-topic" 
+                        class="form-input"
+                        placeholder="What's this room about?"
+                        rows="3"
+                    ></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary modal-cancel">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Room</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
