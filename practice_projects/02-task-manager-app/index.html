@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Organize Your Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header__content">
+                <h1 class="header__title">📋 Task Manager</h1>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Dashboard -->
+        <section class="stats">
+            <div class="stats__grid">
+                <div class="stat-card">
+                    <div class="stat-card__icon">📊</div>
+                    <div class="stat-card__content">
+                        <span class="stat-card__value" id="total-tasks">0</span>
+                        <span class="stat-card__label">Total Tasks</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon">✅</div>
+                    <div class="stat-card__content">
+                        <span class="stat-card__value" id="completed-tasks">0</span>
+                        <span class="stat-card__label">Completed</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon">⏳</div>
+                    <div class="stat-card__content">
+                        <span class="stat-card__value" id="pending-tasks">0</span>
+                        <span class="stat-card__label">Pending</span>
+                    </div>
+                </div>
+                <div class="stat-card stat-card--warning">
+                    <div class="stat-card__icon">⚠️</div>
+                    <div class="stat-card__content">
+                        <span class="stat-card__value" id="overdue-tasks">0</span>
+                        <span class="stat-card__label">Overdue</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <section class="controls">
+            <div class="controls__left">
+                <button class="btn btn--primary" id="add-task-btn">
+                    <span>➕</span> Add Task
+                </button>
+                
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input" 
+                        placeholder="Search tasks..."
+                        aria-label="Search tasks"
+                    >
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+            
+            <div class="controls__right">
+                <div class="filter-group">
+                    <label for="status-filter" class="filter-label">Status:</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="priority-filter" class="filter-label">Priority:</label>
+                    <select id="priority-filter" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <main class="task-list" id="task-list">
+            <!-- Tasks will be dynamically inserted here -->
+            <div class="empty-state" id="empty-state">
+                <div class="empty-state__icon">📝</div>
+                <h3 class="empty-state__title">No tasks yet</h3>
+                <p class="empty-state__text">Add your first task to get started!</p>
+                <button class="btn btn--primary" id="empty-add-task-btn">
+                    <span>➕</span> Add Task
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 class="modal__title" id="modal-title">Add New Task</h2>
+                <button class="modal__close" id="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            
+            <form class="task-form" id="task-form">
+                <input type="hidden" id="task-id">
+                
+                <div class="form-group">
+                    <label for="task-title" class="form-label">Title *</label>
+                    <input 
+                        type="text" 
+                        id="task-title" 
+                        class="form-input" 
+                        required
+                        placeholder="Enter task title"
+                        maxlength="100"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-description" class="form-label">Description</label>
+                    <textarea 
+                        id="task-description" 
+                        class="form-input form-textarea"
+                        placeholder="Enter task description"
+                        rows="3"
+                        maxlength="500"
+                    ></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-priority" class="form-label">Priority</label>
+                        <select id="task-priority" class="form-input">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-due-date" class="form-label">Due Date</label>
+                        <input 
+                            type="date" 
+                            id="task-due-date" 
+                            class="form-input"
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn--outline" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn--primary">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

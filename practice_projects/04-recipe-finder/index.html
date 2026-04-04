@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - Discover Delicious Recipes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <h1>Recipe Finder</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-view="search">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </button>
+                <button class="nav-btn" data-view="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </button>
+                <button class="nav-btn" data-view="random">
+                    <i class="fas fa-random"></i>
+                    <span>Random</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Search Section -->
+        <section id="search-view" class="view-section active">
+            <div class="search-hero">
+                <h2>What do you want to cook today?</h2>
+                <p>Search recipes by ingredients, meal type, or dietary preferences</p>
+                
+                <div class="search-box">
+                    <div class="input-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            type="text" 
+                            id="recipe-search" 
+                            class="search-input"
+                            placeholder="Enter ingredients (e.g., chicken, rice, tomato)"
+                            aria-label="Search recipes"
+                        >
+                        <button id="clear-search" class="clear-btn" aria-label="Clear search">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <button id="search-submit" class="search-submit">
+                        Search Recipes
+                    </button>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="meal-type">
+                            <i class="fas fa-clock"></i>
+                            Meal Type
+                        </label>
+                        <select id="meal-type" class="filter-select">
+                            <option value="">All Meals</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Snack">Snack</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="dietary">
+                            <i class="fas fa-leaf"></i>
+                            Dietary
+                        </label>
+                        <select id="dietary" class="filter-select">
+                            <option value="">All</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Gluten-Free">Gluten Free</option>
+                            <option value="Dairy-Free">Dairy Free</option>
+                            <option value="Healthy">Healthy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Area -->
+            <div class="results-container">
+                <div id="loading" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <p>Finding delicious recipes...</p>
+                </div>
+
+                <div id="error-message" class="error-state hidden">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p></p>
+                </div>
+
+                <div id="no-results" class="no-results hidden">
+                    <i class="fas fa-search"></i>
+                    <h3>No recipes found</h3>
+                    <p>Try different ingredients or adjust your filters</p>
+                </div>
+
+                <div id="recipes-grid" class="recipes-grid">
+                    <!-- Recipe cards will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites-view" class="view-section">
+            <div class="section-header">
+                <h2><i class="fas fa-heart"></i> Your Favorite Recipes</h2>
+                <p id="favorites-count">0 recipes saved</p>
+            </div>
+            <div id="favorites-grid" class="recipes-grid">
+                <!-- Favorite recipe cards will be inserted here -->
+            </div>
+            <div id="no-favorites" class="no-results hidden">
+                <i class="fas fa-heart-broken"></i>
+                <h3>No favorites yet</h3>
+                <p>Start exploring and save your favorite recipes!</p>
+                <button class="cta-btn" onclick="switchView('search')">
+                    Browse Recipes
+                </button>
+            </div>
+        </section>
+
+        <!-- Random Recipe Section -->
+        <section id="random-view" class="view-section">
+            <div class="section-header">
+                <h2><i class="fas fa-random"></i> Random Recipe Inspiration</h2>
+                <p>Feeling adventurous? Try something new!</p>
+                <button id="get-random" class="cta-btn">
+                    <i class="fas fa-sync-alt"></i> Get Another Recipe
+                </button>
+            </div>
+            <div id="random-recipe-container" class="random-recipe-container">
+                <div id="random-loading" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <p>Finding a surprise recipe...</p>
+                </div>
+                <div id="random-content" class="hidden">
+                    <!-- Random recipe will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Modal -->
+        <div id="recipe-modal" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="modal-body">
+                    <div class="recipe-image-container">
+                        <img id="modal-image" src="" alt="Recipe image" class="recipe-image">
+                        <button id="modal-favorite" class="favorite-toggle" aria-label="Add to favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="recipe-details">
+                        <h2 id="modal-title">Recipe Title</h2>
+                        <div class="recipe-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="modal-category">Category</span>
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-globe"></i>
+                                <span id="modal-area">Cuisine</span>
+                            </span>
+                        </div>
+
+                        <div class="recipe-sections">
+                            <section class="ingredients-section">
+                                <h3><i class="fas fa-shopping-basket"></i> Ingredients</h3>
+                                <ul id="modal-ingredients" class="ingredients-list">
+                                    <!-- Ingredients will be listed here -->
+                                </ul>
+                            </section>
+
+                            <section class="instructions-section">
+                                <h3><i class="fas fa-book-open"></i> Instructions</h3>
+                                <div id="modal-instructions" class="instructions-text">
+                                    <!-- Instructions will be displayed here -->
+                                </div>
+                            </section>
+
+                            <section class="video-section hidden" id="video-section">
+                                <h3><i class="fas fa-video"></i> Video Tutorial</h3>
+                                <div id="modal-video" class="video-container">
+                                    <!-- YouTube video will be embedded here -->
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="modal-actions">
+                            <a id="modal-source" href="#" target="_blank" class="source-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Original Recipe
+                            </a>
+                            <button id="print-recipe" class="print-btn">
+                                <i class="fas fa-print"></i>
+                                Print Recipe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

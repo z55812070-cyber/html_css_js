@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">YourName</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">Skills</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#projects" class="nav__link">Projects</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Hi, I'm <span class="highlight">Your Name</span>
+                    </h1>
+                    <p class="hero__subtitle">Full Stack Developer | UI/UX Enthusiast | Problem Solver</p>
+                    <p class="hero__description">
+                        I build exceptional digital experiences that combine clean code with beautiful design.
+                        Currently focused on creating accessible, user-centered applications.
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#projects" class="btn btn--primary">View My Work</a>
+                        <a href="#contact" class="btn btn--outline">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="hero__image-wrapper">
+                        <!-- Replace with your image -->
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%236366f1' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EYour Photo%3C/text%3E%3C/svg%3E" alt="Profile photo" class="hero__img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <h2 class="section__title">About Me</h2>
+                <div class="about__content">
+                    <div class="about__image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%238b5cf6' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EAbout Image%3C/text%3E%3C/svg%3E" alt="Working" class="about__img">
+                    </div>
+                    <div class="about__text">
+                        <h3 class="about__subtitle">A passionate developer based in Your City</h3>
+                        <p>
+                            I'm a self-taught developer with a background in [Your Previous Field]. 
+                            My journey into programming started with curiosity and has become a passion.
+                        </p>
+                        <p>
+                            I specialize in building web applications using modern technologies like 
+                            JavaScript, React, and Node.js. I believe in writing clean, maintainable code 
+                            and creating intuitive user experiences.
+                        </p>
+                        <p>
+                            When I'm not coding, you can find me [Your Hobbies], contributing to open-source 
+                            projects, or learning about the latest tech trends.
+                        </p>
+                        <a href="#" class="btn btn--primary">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills" id="skills">
+            <div class="container">
+                <h2 class="section__title">My Skills</h2>
+                <div class="skills__grid">
+                    <div class="skill-card">
+                        <div class="skill-card__icon">🌐</div>
+                        <h3 class="skill-card__title">Frontend</h3>
+                        <ul class="skill-card__list">
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>React / Vue</li>
+                            <li>Tailwind / Bootstrap</li>
+                        </ul>
+                        <div class="skill-card__progress">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-card__icon">⚙️</div>
+                        <h3 class="skill-card__title">Backend</h3>
+                        <ul class="skill-card__list">
+                            <li>Node.js</li>
+                            <li>Express</li>
+                            <li>Python</li>
+                            <li>PostgreSQL / MongoDB</li>
+                        </ul>
+                        <div class="skill-card__progress">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-card__icon">🎨</div>
+                        <h3 class="skill-card__title">Tools & Others</h3>
+                        <ul class="skill-card__list">
+                            <li>Git & GitHub</li>
+                            <li>Figma</li>
+                            <li>Docker</li>
+                            <li>AWS Basics</li>
+                        </ul>
+                        <div class="skill-card__progress">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects" id="projects">
+            <div class="container">
+                <h2 class="section__title">Featured Projects</h2>
+                <div class="projects__grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%236366f1' width='400' height='250'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EProject 1%3C/text%3E%3C/svg%3E" alt="Project 1" class="project-card__img">
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">E-commerce Platform</h3>
+                            <p class="project-card__description">
+                                A full-stack e-commerce solution with cart functionality, payment integration, and admin dashboard.
+                            </p>
+                            <div class="project-card__tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="#" class="btn btn--small">Live Demo</a>
+                                <a href="#" class="btn btn--small btn--outline">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%238b5cf6' width='400' height='250'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EProject 2%3C/text%3E%3C/svg%3E" alt="Project 2" class="project-card__img">
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Task Management App</h3>
+                            <p class="project-card__description">
+                                A productivity app with drag-and-drop interface, real-time collaboration, and analytics.
+                            </p>
+                            <div class="project-card__tags">
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Tailwind</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="#" class="btn btn--small">Live Demo</a>
+                                <a href="#" class="btn btn--small btn--outline">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%23ec4899' width='400' height='250'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EProject 3%3C/text%3E%3C/svg%3E" alt="Project 3" class="project-card__img">
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Weather Dashboard</h3>
+                            <p class="project-card__description">
+                                Real-time weather application with location detection, forecasts, and beautiful visualizations.
+                            </p>
+                            <div class="project-card__tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">API Integration</span>
+                                <span class="tag">CSS Grid</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="#" class="btn btn--small">Live Demo</a>
+                                <a href="#" class="btn btn--small btn--outline">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <h2 class="section__title">Get In Touch</h2>
+                <div class="contact__content">
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">Let's work together</h3>
+                        <p>
+                            I'm currently available for freelance work or full-time opportunities. 
+                            If you have a project that needs some creative touch, feel free to contact me!
+                        </p>
+                        <div class="contact__details">
+                            <div class="contact__item">
+                                <span class="contact__icon">📧</span>
+                                <span>your.email@example.com</span>
+                            </div>
+                            <div class="contact__item">
+                                <span class="contact__icon">📍</span>
+                                <span>Your City, Country</span>
+                            </div>
+                            <div class="contact__item">
+                                <span class="contact__icon">💼</span>
+                                <span>Available for opportunities</span>
+                            </div>
+                        </div>
+                        <div class="contact__social">
+                            <a href="#" class="social-link" aria-label="GitHub">GitHub</a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                            <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
+                        </div>
+                    </div>
+                    <form class="contact__form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>Built with ❤️ using HTML, CSS & JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
